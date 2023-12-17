@@ -1,0 +1,9 @@
+#!/bin/bash
+#SBATCH -t 6:00:00
+#SBATCH --mem-per-cpu=16G
+set -x
+chmod +xr ./no-cvs/run.sh
+./run.sh
+awk '{print $1,$4,$5,$6,$7}' Galaxy_XAE.dat > lisa_data_no_cvs.dat
+awk '{print $1,$4,$5,$6,$7}' Galaxy_XAE_R1.dat > lisa_residual_no_cvs.dat
+cp Confusion_XAE_1.dat noise.dat
